@@ -6,7 +6,7 @@ from telegram.ext import Updater, MessageHandler, Filters
 import config
 from yandex import send_to_screen
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.ERROR)
 last_url = ""
 authorised_users = config.authorised_users
 
