@@ -45,7 +45,10 @@ def message_received(update, callback):
     video_url = get_video_url(url)
     result = send_to_screen(video_url)
 
-    callback.bot.send_message(chat_id=update.message.chat_id, text=result + video_url)
+    if 'success' in result:
+        callback.bot.send_message(chat_id=update.message.chat_id, text='Начинаем воспроизведение полученного ролика')
+    else:
+        callback.bot.send_message(chat_id=update.message.chat_id, text=result + video_url)
 
 
 updater = Updater(token=config.telegram_bot_token, request_kwargs=config.proxy)
